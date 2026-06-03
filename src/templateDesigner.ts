@@ -11,7 +11,10 @@
  * - HTML report generator
  */
 
-import { RGB } from 'pdf-lib';
+// Inlined RGB type — was `import { RGB } from 'pdf-lib'`. Inlining drops the
+// pdf-lib dep so this package can publish standalone. Consumers that need the
+// real pdf-lib RGB pass it via the string form (CSS-style hex) for portability.
+export type RGB = { type: 'RGB'; red: number; green: number; blue: number };
 
 /**
  * Complete report data structure
